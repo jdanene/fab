@@ -17,7 +17,6 @@
     "expo": "~36.0.0",
     "expo-camera": "~8.0.0",
     "expo-constants": "latest",
-    "expo-face-detector": "~8.0.0",
     "expo-file-system": "~8.0.0",
     "expo-font": "~8.0.0",
     "expo-image-manipulator": "~8.0.0",
