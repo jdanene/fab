@@ -70,7 +70,6 @@ const CameraApp = ({route}) => {
                     camera_roll: cameraRoll_permissions.status === 'granted'
                 });
 
-            //  let pickerResult = await ImagePicker.launchCameraAsync();
             let uri = await MediaLibrary.getAssetsAsync({first: 1});
             setImgPreview(uri.assets[0].uri);
         };

@@ -51,7 +51,6 @@ const roomStillActive = ({ room, roomID }) => {
 
 
 const getActiveList = ({rooms,seenSet}) => {
-  //const snapshot = await db.ref("rooms/active/").once("value");
   let activeRooms = [];
 
   for (let roomID of Object.keys(rooms)) {

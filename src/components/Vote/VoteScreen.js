@@ -11,7 +11,7 @@ import updateVotes from "../../db/updateVotes"
 import getVoteData from "../../db/getVoteData"
 import getRoomData from "../../db/getRoomData"
 import closeRoom from "../../db/closeRoom"
-import { colors, normalize, sizes } from "../../constants/styles"
+import { colors, normalize } from "../../constants/styles"
 import CountDown from "../countdown/CountDown"
 import { RoomImages } from "../RoomImages"
 import { RoomTitle } from "../RoomTitle"
@@ -23,20 +23,13 @@ import VoteResults from "./VoteResults"
 import fb from "../../db/init"
 const db = fb.database()
 
-/*
-function getRndInteger(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min
-}
-*/
 
 const VoteScreen = ({ roomInfo }) => {
   const [voteState, setVoteState] = useState({})
-  const deviceWidth = Dimensions.get("window").width
   const [areImagesLoaded, setAreImagesLoaded] = useState(false)
   const [imageViewport, setImageViewport] = useState({})
   const { user, userID, isLoggedIn } = useContext(AppContext)
-  const { currentRoom, setCurrentRoom, swiper } = useContext(VoteContext)
-  const [hasFinished, setHasFinished] = useState(false)
+  const { swiper } = useContext(VoteContext)
   const [roomData, setRoomData] = useState(null)
   const autoMoveNextTimeout = useRef();
 
@@ -79,7 +72,6 @@ const VoteScreen = ({ roomInfo }) => {
 
     const delay = 3000;
     autoMoveNextTimeout.current = setTimeout(() => {
-      //!(hasSwiped.current) && swiper.current.swipeTop();
       swiper.current.swipeTop()
       setVoteState({})
       setAreImagesLoaded(false)

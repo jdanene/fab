@@ -28,7 +28,6 @@ const Chart = ({ data }) => {
   return (
     <View>
     <PieChart
-        // style={{ height: 200 }}
         valueAccessor={({ item }) => item.amount}
         data={data}
         spacing={0}

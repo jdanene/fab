@@ -10,7 +10,6 @@ import getVoteData from "../../db/getVoteData"
 let x =
   "https://firebasestorage.googleapis.com/v0/b/fabapp-a1ea0.appspot.com/o/my-image.jpg?alt=media&token=995d6347-0435-41ac-96e1-91106786ab2c"
 
-//const testPictures = 'https://i.imgur.com/VakBHis.jpg';
 
 const RoomImages = props => {
   const {
@@ -84,7 +83,6 @@ const RoomImages = props => {
 
     },[isImageOpen.state]);
 
-    //<CloseButton closeCallBack={() => closeImage()}/>
   return (
     <View
       style={styles.container}
@@ -184,9 +182,7 @@ const styles = StyleSheet.create({
     borderColor: "#A9A9A9",
     borderWidth: 0.5,
     backgroundColor: "#E8E8E8",
-    borderRadius: 2,
-    // alignItems: "center",
-    // justifyContent: "center"
+    borderRadius: 2
   },
   image: {
     height: "100%",
@@ -196,7 +192,6 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    // justifyContent: "space-between",
     flexDirection: "row",
     backgroundColor: 'transparent'
   },

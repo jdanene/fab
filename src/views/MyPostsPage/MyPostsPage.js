@@ -16,7 +16,6 @@ import moment from "moment"
 const db = fb.database()
 
 const MyPostsPage = () => {
-  // const navigation = useNavigation()
   const userID = Constants.installationId
   const { user, isLoggedIn } = useContext(AppContext)
   const [userInfo, setUserInfo] = useState(null)

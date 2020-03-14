@@ -16,8 +16,6 @@ export default class EmptyBox extends React.Component {
 
         if (this._isMounted) {
             this.animation.play();
-            // Or set a specific startFrame and endFrame with:
-            // this.animation.play(30, 120);
 
             // load animation after a short timeout
             setTimeout(() => {

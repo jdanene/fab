@@ -136,7 +136,6 @@ const getTotalNumVoters = roomData => {
 
 const Results = ({ route }) => {
   const [roomData, setRoomData] = useState(null);
-  const [winningPhoto, setWinningPhoto] = "TIE"
   const [isFinished, setIsFinished] = useState(false);
 
   useEffect(() => {
