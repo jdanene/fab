@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Fab_V1.0",
+    "name": "Final demo version ",
     "slug": "fab",
     "privacy": "public",
     "sdkVersion": "36.0.0",
@@ -29,17 +29,17 @@
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": [
-      "expo.ts",
-      "expo.tsx",
-      "expo.js",
-      "expo.jsx",
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "wasm",
-      "svg"
+        "expo.ts",
+        "expo.tsx",
+        "expo.js",
+        "expo.jsx",
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "wasm",
+        "svg"
       ]
     },
     "description": ""
