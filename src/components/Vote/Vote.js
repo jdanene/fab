@@ -84,7 +84,7 @@ const Vote = () => {
   useEffect(() => {
     const getRooms = async () => {
       const snapshot = await db.ref("rooms/active/").once("value");
-      const activeList = getActiveList({rooms:snapshot.val(),seenSet:seenSet.current});
+      const activeList = getActiveList({rooms:snapshot.val()||{},seenSet:seenSet.current});
       setRoomList(activeList);
       setCurrentRoom(0)
     };
