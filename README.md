@@ -29,7 +29,7 @@ Next install [npm](https://www.npmjs.com/get-npm). Assuming that you have [Node 
 # Launching App
 1. Download the [expo app](https://expo.io/tools) on your phone. 
 
-2. Using your terminal/command prompty navigate to the directory with all the code then type:
+2. Using your terminal/command prompt navigate to the directory with all the code then type:
 `npm i` 
 this will install all the required  packages for the app. <br>
 2. Next type: 
