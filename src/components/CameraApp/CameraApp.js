@@ -10,7 +10,6 @@ import {colors, sizes} from "../../constants/styles"
 import CloseButton from "./components/CloseButton";
 import * as MediaLibrary from 'expo-media-library';
 import StyledText from "../StyledText/StyledText";
-import * as FaceDetector from 'expo-face-detector';
 import ZoomView from "./components/ZoomView";
 import FlashButton from "./components/FlashButton";
 import ImgLibraryButton from "./components/ImgLibraryButton";
