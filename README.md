@@ -23,7 +23,7 @@ If you follow the intructions you will come across a [firebase config object](ht
 
 
 ### Installing Expo CLI
-Next install [npm](https://www.npmjs.com/get-npm). Assuming that you have [Node 10 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
+Next install [npm](https://www.npmjs.com/get-npm). Assuming that you have [Node 10 LTS](https://nodejs.org/en/download/) or greater installed, use npm to install the Expo CLI command line utility:
 `npm install -g expo-cli` 
 
 # Launching App
