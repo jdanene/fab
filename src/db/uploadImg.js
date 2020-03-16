@@ -2,6 +2,7 @@ import fb from "./init";
 import * as firebase from "firebase";
 import * as FileSystem from "expo-file-system";
 import * as ImageManipulator from "expo-image-manipulator";
+import {Platform} from 'react-native';
 const shortid = require('shortid');
 
 const dbStorage = fb.storage();
@@ -20,7 +21,7 @@ const compressImage = async ({outfit}) => {
     let resizedPhoto = await ImageManipulator.manipulateAsync(
         outfit.uri,
         [],
-        {compress: .5, format: "jpeg", base64: false}
+        {compress: Platform.OS === 'ios'?0:.5, format: "jpeg", base64: false}
     );
     let compressedInfo = await FileSystem.getInfoAsync(resizedPhoto.uri, {'size': true});
 
