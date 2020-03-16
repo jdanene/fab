@@ -20,7 +20,7 @@ const compressImage = async ({outfit}) => {
     let resizedPhoto = await ImageManipulator.manipulateAsync(
         outfit.uri,
         [],
-        {compress: 0, format: "jpeg", base64: false}
+        {compress: .5, format: "jpeg", base64: false}
     );
     let compressedInfo = await FileSystem.getInfoAsync(resizedPhoto.uri, {'size': true});
 
