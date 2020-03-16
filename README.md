@@ -10,15 +10,16 @@ A mobile web app where users can post pictures of two outfit options and a commu
 - firebase 
 
 ## Installation
-The app uses Firebase as cloud storage and it uses Firebase as a NoSQL database, so to use the app you must set up firebase. 
+The app uses Firebase as cloud storage and it uses Firebase as a NoSQL database, so to use the app you must set up Firebase. 
 
 ### Linking Firebase and Fab
-A few steps are needed to connect Firebase and your app.
+A few steps are needed to connect Firebase and fab-app.
 
-#### Create a Firebase project for your app
+#### Create a Firebase project for fab-app
 You do this with your browser on [the Firebase web console](https://console.firebase.google.com/). Follow [these instructions](https://firebase.google.com/docs/web/setup).
 
-If you follow the intructions you will come across a [firebase config object](https://support.google.com/firebase/answer/7015592). Copy the firebase config object and navigate to the  file `./src/components/db/init.js` replace the firebase config object in this file with your own. 
+#### Initialize Firebase in fab-app before using
+If you follow the intructions you will come across a [firebase config object](https://support.google.com/firebase/answer/7015592). Copy the firebase config object and navigate to the file located at the path `./src/db/init.js`, replace the [firebase config object in this file](https://github.com/cs394-w20/fab/blob/master/src/db/init.js#L5) with your own. 
 
 
 ### Launching the app with Expo
