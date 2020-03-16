@@ -2,6 +2,7 @@ import fb from "./init";
 import * as firebase from "firebase";
 import * as FileSystem from "expo-file-system";
 import * as ImageManipulator from "expo-image-manipulator";
+import {Platform} from 'react-native';
 const shortid = require('shortid');
 
 const dbStorage = fb.storage();
@@ -20,7 +21,7 @@ const compressImage = async ({outfit}) => {
     let resizedPhoto = await ImageManipulator.manipulateAsync(
         outfit.uri,
         [],
-        {compress: 0, format: "jpeg", base64: false}
+        {compress: Platform.OS === 'ios'?0:.5, format: "jpeg", base64: false}
     );
     let compressedInfo = await FileSystem.getInfoAsync(resizedPhoto.uri, {'size': true});
 
@@ -59,14 +60,10 @@ const uploadImage = async ({outfit, uploadCallback}) => {
     uploadTask.on('state_changed', function (snapshot) {
         // Observe state change events such as progress, pause, and resume
         // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        //var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        //console.log('Upload is ' + progress + '% done');
         switch (snapshot.state) {
-            case firebase.storage.TaskState.PAUSED: // or 'paused'
-                //console.log('Upload is paused');
+            case firebase.storage.TaskState.PAUSED: 
                 break;
-            case firebase.storage.TaskState.RUNNING: // or 'running'
-                //console.log('Upload is running');
+            case firebase.storage.TaskState.RUNNING: 
                 break;
         }
     }, function (error) {
@@ -75,7 +72,6 @@ const uploadImage = async ({outfit, uploadCallback}) => {
         // Handle successful uploads on complete
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         uploadTask.snapshot.ref.getDownloadURL().then((url) => {
-            //console.log("UPLOADED!!!");
             uploadCallback({url})
         });
     });

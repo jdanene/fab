@@ -23,10 +23,10 @@ VoteButton.defaultProps = {
 }
 const styles = StyleSheet.create({
   button: {
-    margin: 8,
+    margin: normalize(8),
     backgroundColor: colors.primary.main,
-    paddingVertical: 4,
-    paddingHorizontal: 32,
+    paddingVertical: normalize(4),
+    paddingHorizontal: normalize(30),
     borderRadius: 10
   }
 })

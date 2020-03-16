@@ -28,8 +28,8 @@ const updateVotes = async ({roomID, selection, userID, badge}) => {
     const snapshot = await db.ref(`rooms/active/${roomID}`).once("value");
 
     const {numInfluencersA,numNormalA,numInfluencersB,numNormalB} = getNumberOfVoters(snapshot.val());
-    const scoreA = numNormalA + numInfluencersA;
-    const scoreB = numNormalB + numInfluencersB;
+    const scoreA = numNormalA + 2*numInfluencersA;
+    const scoreB = numNormalB + 2*numInfluencersB;
 
     return {
         numInfluencersA: numInfluencersA * 2,

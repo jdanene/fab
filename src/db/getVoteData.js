@@ -1,4 +1,3 @@
-import fb from "./init"
 import {getNumberOfVoters} from './Utility'
 
 
@@ -6,8 +5,8 @@ import {getNumberOfVoters} from './Utility'
 const getVoteData =  (roomData) => {
 
     const {numInfluencersA,numNormalA,numInfluencersB,numNormalB} = getNumberOfVoters(roomData);
-    const scoreA = numNormalA + numInfluencersA;
-    const scoreB = numNormalB + numInfluencersB;
+    const scoreA = numNormalA + 2*numInfluencersA;
+    const scoreB = numNormalB + 2*numInfluencersB;
     return {
         numInfluencersA: numInfluencersA * 2,
         numNormalA: numNormalA,

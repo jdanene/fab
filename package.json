@@ -11,16 +11,17 @@
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
-    "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
-  ]
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base)"
+    ]
   },
   "dependencies": {
     "@expo/vector-icons": "latest",
-    "@react-native-community/masked-view": "0.1.5",
-    "@react-navigation/bottom-tabs": "^5.1.0",
-    "@react-navigation/material-bottom-tabs": "^5.0.6",
-    "@react-navigation/native": "^5.0.7",
-    "@react-navigation/stack": "^5.0.6",
+    "@react-native-community/cli": "^4.3.0",
+    "@react-native-community/masked-view": "0.1.7",
+    "@react-navigation/bottom-tabs": "^5.1.1",
+    "@react-navigation/material-bottom-tabs": "^5.1.1",
+    "@react-navigation/native": "^5.0.9",
+    "@react-navigation/stack": "^5.1.1",
     "expo": "~36.0.0",
     "expo-camera": "~8.0.0",
     "expo-constants": "latest",
@@ -30,34 +31,37 @@
     "expo-image-picker": "^8.0.2",
     "expo-media-library": "^8.0.0",
     "expo-permissions": "~8.0.0",
-    "firebase": "^7.9.0",
+    "firebase": "^7.11.0",
     "lottie-react-native": "~2.6.1",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
-    "react": "~16.9.0",
-    "react-dom": "~16.9.0",
+    "react": "~16.13.0",
+    "react-dom": "~16.13.0",
     "react-moment": "^0.9.7",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-deck-swiper": "^1.6.7",
-    "react-native-gesture-handler": "~1.5.0",
+    "react-native-gesture-handler": "~1.6.0",
     "react-native-image-zoom-viewer": "^2.2.27",
     "react-native-paper": "^3.6.0",
-    "react-native-reanimated": "~1.4.0",
-    "react-native-safe-area-context": "0.6.0",
-    "react-native-screens": "2.0.0-alpha.12",
-    "react-native-svg": "^9.13.3",
+    "react-native-reanimated": "~1.7.0",
+    "react-native-safe-area-context": "0.7.3",
+    "react-native-screens": "2.3.0",
+    "react-native-svg": "^12.0.3",
     "react-native-svg-charts": "^5.3.0",
     "react-native-svg-transformer": "^0.14.3",
     "react-native-swipe-gestures": "^1.0.4",
     "react-native-view-overflow": "^0.0.5",
-    "react-native-web": "~0.11.7",
+    "react-native-web": "~0.12.2",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "babel-preset-expo": "~8.0.0",
     "jest-expo": "^36.0.1",
-    "react-test-renderer": "^16.13.0"
+    "react-test-renderer": "^16.13.0",
+    "@babel/core": "^7.8.7",
+    "babel-preset-expo": "~8.0.0"
+  },
+  "resolutions": {
+    "os-locale": "^4.0.0"
   },
   "private": true
 }

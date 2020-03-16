@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import * as Font from "expo-font"
-import { StyleSheet, Text, View, ScrollView,StatusBar } from "react-native"
+import { StyleSheet, StatusBar } from "react-native"
 import { SafeAreaProvider } from "react-native-safe-area-context"
 import { Navigation } from "./src/Navigation/"
 import {AppContextProvider} from "./src/context/AppContext";

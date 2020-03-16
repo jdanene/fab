@@ -2,7 +2,7 @@ import React from "react"
 import { createStackNavigator } from "@react-navigation/stack"
 import { Results, MyPostsPage } from "../views"
 import { screens } from "./constants"
-import {normalize,colors} from "../constants/styles";
+import { colors } from "../constants/styles";
 
 const Stack = createStackNavigator()
 
@@ -18,14 +18,14 @@ const ResultsNavigationStack = () => {
       />
 
       <Stack.Screen
-          component={Results}
-          name={screens.RESULTS}
-          options={{
-            title:'',
-            headerStyle: {
-                backgroundColor: colors.general.white,
-            }
-      }}/>
+        component={Results}
+        name={screens.RESULTS}
+        options={{
+          title: '',
+          headerStyle: {
+            backgroundColor: colors.general.white,
+          }
+        }} />
     </Stack.Navigator>
   )
 }

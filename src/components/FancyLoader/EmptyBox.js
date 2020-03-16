@@ -1,10 +1,9 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import LottieView from "lottie-react-native";
-import {colors, normalize, sizes} from "../../constants/styles"
-import StyledText from "../StyledText/StyledText";
+import { normalize} from "../../constants/styles"
 
-export default class Loader extends React.Component {
+export default class EmptyBox extends React.Component {
     _isMounted = false;
 
     constructor(props) {
@@ -23,7 +22,7 @@ export default class Loader extends React.Component {
                 if (this._isMounted) {
                     this.setState({loadLoader: true})
                 }
-            }, 500);
+            }, 0);
         }
 
     }
@@ -32,33 +31,22 @@ export default class Loader extends React.Component {
         this._isMounted = false;
     }
 
-    resetAnimation = () => {
-        this.animation.reset();
-        this.animation.play();
-    };
-
     render() {
         return (
             (
                 <View style={styles.container}>
                     <View style={styles.animationContainer}>
-                        {this.state.loadLoader && <StyledText type={'bold'} size={sizes.medium.fontSize} style={{
-                            color: colors.text.secondary.main,
-                            left: normalize(110),
-                            top: normalize(50),
-                            position: 'absolute'
-                        }}>Loading ...</StyledText>}
                         <LottieView
 
                             ref={animation => {
                                 this.animation = animation;
                             }}
                             style={{
-                                width: this.state.loadLoader ? normalize(150) : 0,
-                                height: this.state.loadLoader ? normalize(150) : 0,
+                                width: this.state.loadLoader ? normalize(200) : 0,
+                                height: this.state.loadLoader ? normalize(200) : 0,
                                 backgroundColor: 'transparent',
                             }}
-                            source={require('../../assets/lottie/lf30_editor_16ltIz.json')}
+                            source={require('../../assets/lottie/629-empty-box.json')}
                             // OR find more Lottie files @ https://lottiefiles.com/featured
                             // Just click the one you like, place that file in the 'assets' folder to the left, and replace the above 'require' statement
                         />

@@ -7,13 +7,6 @@ const types = {
   regular: "source-sans-pro-regular"
 }
 
-/*
-Example Use:
-<StyledText type="regular" size={72} style={{ color: "white" }}>
-    What ever text you want here
-</StyledText>
-*/
-
 const StyledText = ({ children, style, type, size, ...rest }) => {
   const styles = StyleSheet.create({
     text: {

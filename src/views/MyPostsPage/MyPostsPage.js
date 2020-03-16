@@ -1,53 +1,62 @@
 import React, { useEffect, useState, useContext } from "react"
 import {
   View,
-  Text,
   SafeAreaView,
   ScrollView,
-  Button,
-  StyleSheet
+  RefreshControl
 } from "react-native"
 import { PostPreview } from "../../components/PostPreview"
-import getUserInfo from "../../db/getUserInfo"
 import { StyledText } from "../../components/StyledText"
 import { AppContext } from "../../context/AppContext"
 import { colors, normalize, sizes } from "../../constants/styles"
 import fb from "../../db/init"
-import closeRoom from "../../db/closeRoom"
 import Loader from "../../components/FancyLoader/FancyLoader"
 import Constants from "expo-constants"
 import moment from "moment"
 const db = fb.database()
 
 const MyPostsPage = () => {
-  // const navigation = useNavigation()
   const userID = Constants.installationId
   const { user, isLoggedIn } = useContext(AppContext)
   const [userInfo, setUserInfo] = useState(null)
+  const [refreshing, setRefreshing] = useState(null)
+
+  const _handleData = snap => {
+    if (snap.val()) {
+      let user = snap.val()
+      let roomsOwned = null
+      if ("rooms_owned" in user) {
+        const rooms = Object.entries(user.rooms_owned)
+        const sortedRooms = rooms.sort(([a_key, a_val], [b_key, b_val]) => {
+          return moment(a_val.time_created).isBefore(moment(b_val.time_created))
+        })
+        roomsOwned = sortedRooms.reduce((acc, curr) => {
+          acc[curr[0]] = curr[1]
+          return acc
+        }, {})
+      }
+
+      user.rooms_owned = roomsOwned
+      setUserInfo(user)
+      setRefreshing(false)
+    }
+  }
+
+  const _fetchData = async () => {
+    await db
+      .ref("users/")
+      .child(userID)
+      .once("value", _handleData, error => alert(error))
+  }
 
   useEffect(() => {
-    const _handleData = snap => {
-      if (snap.val()) {
-        let user = snap.val();
-        let roomsOwned = null;
-        if ('rooms_owned' in user){
-            const rooms = Object.entries(user.rooms_owned)
-            const sortedRooms = rooms.sort(([a_key, a_val], [b_key, b_val]) => {
-                  return moment(a_val.time_created).isBefore(moment(b_val.time_created))
-            })
-            roomsOwned = sortedRooms.reduce((acc, curr) => {
-                acc[curr[0]] = curr[1]
-                return acc
-            }, {})
-          }
-
-        user.rooms_owned = roomsOwned;
-        setUserInfo(user)
-      }
-    };
-    db.ref("users/").child(userID).on("value", _handleData, error => alert(error))
+    db.ref("users/")
+      .child(userID)
+      .on("value", _handleData, error => alert(error))
     return () => {
-      db.ref("users/").child(userID).off("value", _handleData)
+      db.ref("users/")
+        .child(userID)
+        .off("value", _handleData)
     }
   }, [])
 
@@ -69,21 +78,25 @@ const MyPostsPage = () => {
       >
         <UserStats user={userInfo} />
       </View>
-      <ScrollView>
+      <ScrollView
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={_fetchData} />
+        }
+      >
         {userInfo.rooms_owned ? (
           Object.keys(userInfo.rooms_owned).map(roomID => (
             <PostPreview roomID={roomID} user={user} key={roomID} />
           ))
         ) : (
-            <NoPostMessage />
-          )}
+          <NoPostMessage />
+        )}
       </ScrollView>
     </SafeAreaView>
   ) : (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Loader visible={true} />
-      </View>
-    )
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Loader visible={true} />
+    </View>
+  )
 }
 
 const NoPostMessage = () => (
@@ -242,7 +255,7 @@ const PercentCorrect = ({ percent, numVotes }) => {
           </StyledText>
         </View>
         <View style={{ flexDirection: "row", position: "relative" }}>
-          <View style={{ flexDirection: "row" ,alignItems: "center" }}>
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
             <StyledText
               size={sizes.large.fontSize}
               style={{ color: colors.primary.light, paddingLeft: 5 }}

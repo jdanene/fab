@@ -1,6 +1,4 @@
 import fb from "./init"
-import addUser from "./addUser"
-import {BADGES} from '../constants/badges';
 
 const db = fb.database();
 /**

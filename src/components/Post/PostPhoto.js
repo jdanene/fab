@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from "react"
-import {View, Button, StyleSheet, Image, ImageBackground} from "react-native"
-import {CameraApp} from "../CameraApp";
+import React from "react"
+import { View, StyleSheet, ImageBackground } from "react-native"
 import PropTypes from 'prop-types';
 import CloseButton from "../CameraApp/components/CloseButton";
-import {useNavigation} from "@react-navigation/native"
+import { useNavigation } from "@react-navigation/native"
 import StyledText from "../StyledText/StyledText";
-import {colors, normalize, sizes} from "../../constants/styles";
+import { colors, normalize, sizes } from "../../constants/styles";
 import VoteButton from "../Vote/VoteButton/VoteButton";
 
 /**
@@ -13,7 +12,7 @@ import VoteButton from "../Vote/VoteButton/VoteButton";
  * @param outfit - {uri:string, outfitOption: enum [A,B]} for example {uri:'https://tinyurl/dvdfr', outfitOption: 'A'}
  * @param onCloseCallback - called when picture is closed.
  */
-const PostPhoto = ({outfit, onCloseCallback}) => {
+const PostPhoto = ({ outfit, onCloseCallback }) => {
     const navigation = useNavigation();
 
     const onClose = () => {
@@ -24,23 +23,23 @@ const PostPhoto = ({outfit, onCloseCallback}) => {
         <View style={styles.photo_option}>
 
             {outfit.uri !== undefined ?
-                <ImageBackground source={{uri: outfit.uri}} style={{...styles.image}} resizeMode={'cover'}>
+                <ImageBackground source={{ uri: outfit.uri }} style={{ ...styles.image }} resizeMode={'cover'}>
                     {/* make image darker so close button will always show*/}
-                    <View style={{flex: 1, backgroundColor: 'rgba(0,0,0,0.15)'}}>
+                    <View style={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.15)' }}>
                         {/* close button in top right corner */}
-                        <CloseButton style={styles.close_button} closeCallBack={onClose}/>
+                        <CloseButton style={styles.close_button} closeCallBack={onClose} />
                     </View>
                 </ImageBackground>
                 :
 
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <StyledText
                         size={normalize(15)}
-                        style={{paddingTop: normalize(5), color: colors.text.secondary.main}}>
+                        style={{ paddingTop: normalize(5), color: colors.text.secondary.main }}>
                         Take Photo
                     </StyledText>
                     <VoteButton content={outfit.outfitOption}
-                                onPress={() => navigation.navigate('CameraApp', {outfitOption: outfit.outfitOption})}/>
+                        onPress={() => navigation.navigate('CameraApp', { outfitOption: outfit.outfitOption })} />
                 </View>
             }
         </View>

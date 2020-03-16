@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react"
 import {View, StyleSheet, TouchableWithoutFeedback, Keyboard} from "react-native"
 import {SafeAreaView} from "react-native-safe-area-context"
-import {useNavigation} from "@react-navigation/native"
 import PostButton from "./PostButton";
 import {colors, normalize} from "../../constants/styles";
 import PostPhoto from "./PostPhoto";
@@ -13,7 +12,6 @@ const PostPage = ({route, navigation}) => {
     const [outfitA, setOutfitA] = useState({uri: undefined, outfitOption: 'A'});
     const [outfitB, setOutfitB] = useState({uri: undefined, outfitOption: 'B'});
     const [roomTitle, setRoomTitle] = useState('');
-    //const navigation = useNavigation();
 
 
     useEffect(() => {

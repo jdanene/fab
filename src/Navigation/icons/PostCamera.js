@@ -1,6 +1,6 @@
 import React from "react"
 import Svg, { G, Path, Circle } from "react-native-svg"
-const PostCamera = ({ color, size }) => (
+const PostCamera = ({ color }) => (
   <Svg width="28px" height="22px" viewBox="0 0 28 22">
     <G
       stroke="none"

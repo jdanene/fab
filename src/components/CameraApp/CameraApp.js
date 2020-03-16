@@ -17,13 +17,7 @@ import ImgLibraryButton from "./components/ImgLibraryButton";
 import ShootPictureButton from "./components/ShootPictureButton";
 import FlipCameraButton from "./components/FlipCameraButton";
 import {CAMERA_TYPES,CAMERA_FLASH_MODES} from "./constants"
-import {
-  Ionicons,
-  MaterialIcons,
-  Foundation,
-  MaterialCommunityIcons,
-  Octicons
-} from '@expo/vector-icons';
+
 
 
 const ZOOM_F = Platform.OS === 'ios' ? 0.01 : 0.1;
@@ -76,7 +70,6 @@ const CameraApp = ({route}) => {
                     camera_roll: cameraRoll_permissions.status === 'granted'
                 });
 
-            //  let pickerResult = await ImagePicker.launchCameraAsync();
             let uri = await MediaLibrary.getAssetsAsync({first: 1});
             setImgPreview(uri.assets[0].uri);
         };

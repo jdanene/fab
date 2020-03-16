@@ -3,14 +3,15 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import {View } from "react-native"
 import StyledText from "../StyledText/StyledText";
 import {colors} from "../../constants/styles";
-
+import EmptyBox from "../FancyLoader/EmptyBox";
 const NoMoreRooms = () => (
     <SafeAreaView
         style={{
             flex: 1,
             alignItems: "center",
             justifyContent: "center",
-            margin: 16
+            margin: 16,
+            backgroundColor: colors.general.white
         }}
     >
         <View
@@ -27,6 +28,7 @@ const NoMoreRooms = () => (
             >
                 There are no more posts to vote on!
             </StyledText>
+            <EmptyBox/>
         </View>
     </SafeAreaView>
 );

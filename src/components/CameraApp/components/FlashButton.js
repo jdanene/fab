@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React from 'react';
 import { TouchableOpacity,  StyleSheet} from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 import {sizes} from "../../../constants/styles";
