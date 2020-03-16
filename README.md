@@ -22,7 +22,7 @@ You do this with your browser on [the Firebase web console](https://console.fire
 If you follow the intructions you will come across a [firebase config object](https://support.google.com/firebase/answer/7015592). Copy the firebase config object and navigate to the file located at the path `./src/db/init.js`, replace the [firebase config object in this file](https://github.com/cs394-w20/fab/blob/master/src/db/init.js#L5) with your own. 
 
 
-### Launching the app with Expo
+### Installing Expo CLI
 Next install [npm](https://www.npmjs.com/get-npm). Assuming that you have [Node 10 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 `npm install -g expo-cli` 
 
