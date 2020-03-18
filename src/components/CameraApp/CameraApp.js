@@ -197,7 +197,6 @@ const CameraApp = ({route}) => {
                         ratio={'4:3'}
                         autoFocus={Camera.Constants.AutoFocus.on}
                         zoom={zoom}
-                        faceDetectorSettings={{mode: FaceDetector.Constants.Mode.fastMode}}
                         flashMode={CAMERA_FLASH_MODES[cameraFlashModeIdx]}
                         type={CAMERA_TYPES[cameraTypeIdx]}
                         style={styles.preview}
